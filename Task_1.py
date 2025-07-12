@@ -1,14 +1,13 @@
-from typing import Callable 
 
 def caching_fibonacci() :
-    cach = []
+    cach = {}
     def fibonacci(n):
         
         if n <= 0:
             return 0
         elif n == 1:
             return 1
-        elif len(cach) != 0 :
+        elif n in cach:
             return cach[n]
         
         cach[n] = fibonacci(n-1) + fibonacci(n-2)
@@ -18,4 +17,4 @@ def caching_fibonacci() :
     return fibonacci
 
 fib = caching_fibonacci()
-print(fib(5))
+print(fib(15))
